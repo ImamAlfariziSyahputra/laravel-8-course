@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Car;
+use App\Models\Product;
 
 class CarsController extends Controller
 {
@@ -14,8 +15,10 @@ class CarsController extends Controller
      */
     public function index()
     {
-        $cars = Car::all();
+        $cars = Car::all()->toJson();
+        $cars = json_decode($cars);
 
+        // var_dump($cars);
         return view('cars.index', [
             'cars' => $cars,
         ]);
@@ -61,7 +64,13 @@ class CarsController extends Controller
      */
     public function show($id)
     {
-        //
+        $car = Car::find($id);
+
+        $products = Product::find($id);
+
+        // dd($products);
+
+        return view('cars.show', compact('car'));
     }
 
     /**
