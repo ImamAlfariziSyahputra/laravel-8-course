@@ -4,6 +4,11 @@
 <div class="m-auto w-4/5 py-24">
     <div class="text-center">
         <h1 class="text-5xl uppercase bold">
+            <img 
+                src="{{ asset('images/'.$car->image_path) }}" 
+                class="w-5/12 mb-8 shadow-xl mx-auto"
+                alt=""
+            >
             {{ $car->name }}
         </h1>
     </div>

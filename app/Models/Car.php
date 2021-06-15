@@ -14,7 +14,7 @@ class Car extends Model
 
     public $timestamps = true;
 
-    protected $fillable = ['name', 'founded', 'description'];
+    protected $fillable = ['name', 'founded', 'description', 'image_path'];
 
     // Hidden & visible only works on toJson() and toArray()
     // protected $hidden = ['updated_at'];

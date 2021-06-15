@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="m-auto w-4/8 py-24">
+    <div class="m-auto w-4/8 py-14">
         <div class="text-center">
             <h1 class="text-5xl uppercase bold">
                 Update car
@@ -9,8 +9,8 @@
         </div>
     </div>
 
-    <div class="flex justify-center pt-20">
-        <form action="/cars/{{ $car->id }}" method="POST">
+    <div class="flex justify-center">
+        <form action="/cars/{{ $car->id }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
             <div class="block">
