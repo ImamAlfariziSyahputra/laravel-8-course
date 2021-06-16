@@ -10,6 +10,10 @@ use App\Http\Requests\CreateValidationRequest;
 
 class CarsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth', ['except' => ['index', 'show']]);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -102,6 +106,7 @@ class CarsController extends Controller
             'founded' => $request->founded,
             'description' => $request->description,
             'image_path' => $newImageName,
+            'user_id' => auth()->user()->id,
         ]);
 
         return redirect('/cars');
